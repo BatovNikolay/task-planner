@@ -2,10 +2,15 @@
   <div class="container-fluid p-0">
     <h2>Список задач</h2>
     <button class="btn btn-success" (click)="addTask()">Добавить задачу</button>
-    <app-statistic></app-statistic>
+    <app-statistic
+      [tasksAll]="getTaskListSize()"
+      [tasksPlanned]="getTasksAmountByStatus('Planed')"
+      [tasksFinishing]="getTasksAmountByStatus('Finish')"
+      [tasksOverdue]="getTasksAmountByStatus('Overdue')"
+    ></app-statistic>
   </div>
   <div class="row bg-dark p-2 text-center">
-    <div class="col-sm text-white">
+    <div class="col-sm text-white">l
       Название задачи
     </div>
     <div class="col-sm text-white">
@@ -22,5 +27,12 @@
       <input class="d-inline ml-3" type="checkbox" aria-label="status" (change)="filterTasks($event)">
     </div>
   </div>
-  <app-list-row></app-list-row>
+  <app-list-row
+    [name]="tasks[0].name"
+    [category]="tasks[0].category"
+    [dateStart]="tasks[0].dateStart"
+    [dateEnd]="tasks[0].dateEnd"
+    [status]="tasks[0].status"
+    (deleteTaskEmitter)="deleteTaskFromArray($event)"
+  ></app-list-row>
 </div>

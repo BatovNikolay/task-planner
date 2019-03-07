@@ -7,6 +7,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskListComponent implements OnInit {
 
+  tasks = [
+    {
+      name: 'Task 1',
+      category: 'Category 1',
+      dateStart: '01.02.2002',
+      dateEnd: '01.03.2002',
+      status: 'Finish'
+    },
+    {
+      name: 'Task 2',
+      category: 'Category 3',
+      dateStart: '21.02.2002',
+      dateEnd: '',
+      status: 'In progress'
+    },
+    {
+      name: 'Task 3',
+      category: 'Category 2',
+      dateStart: '21.02.2002',
+      dateEnd: '',
+      status: 'Planed'
+    },
+    {
+      name: 'Task 4',
+      category: 'Category 3',
+      dateStart: '21.02.2002',
+      dateEnd: '',
+      status: 'In progress'
+    },
+    {
+      name: 'Task 5',
+      category: 'Category 2',
+      dateStart: '21.02.2002',
+      dateEnd: '',
+      status: 'In progress'
+    },
+    {
+      name: 'Task 6',
+      category: 'Category 1',
+      dateStart: '21.02.2002',
+      dateEnd: '',
+      status: 'Overdue'
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {
@@ -18,5 +63,17 @@ export class TaskListComponent implements OnInit {
 
   filterTasks($event) {
     console.log($event.target.checked);
+  }
+
+  getTaskListSize() {
+    return this.tasks.length;
+  }
+
+  deleteTaskFromArray(name: string) {
+    console.log('Задача ' + name + ' удалена');
+  }
+
+  getTasksAmountByStatus(status: string) {
+    return this.tasks.filter(task => task.status === status).length;
   }
 }
