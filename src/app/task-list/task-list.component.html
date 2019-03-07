@@ -1,4 +1,9 @@
 <div class="container-fluid mt-2">
+  <div class="container-fluid p-0">
+    <h2>Список задач</h2>
+    <button class="btn btn-success" (click)="addTask()">Добавить задачу</button>
+    <app-statistic></app-statistic>
+  </div>
   <div class="row bg-dark p-2 text-center">
     <div class="col-sm text-white">
       Название задачи
@@ -12,19 +17,10 @@
     <div class="col-sm text-white">
       Дата окончания
     </div>
-  </div>
-  <div class="row bg-secondary p-1 text-center">
     <div class="col-sm text-white">
-      Test 1
-    </div>
-    <div class="col-sm text-white">
-      Category 1
-    </div>
-    <div class="col-sm text-white">
-      01.02.2002
-    </div>
-    <div class="col-sm text-white">
-      01.03.2002
+      <div class="mr-2 d-inline">Статус</div>
+      <input class="d-inline ml-3" type="checkbox" aria-label="status" (change)="filterTasks($event)">
     </div>
   </div>
+  <app-list-row></app-list-row>
 </div>
