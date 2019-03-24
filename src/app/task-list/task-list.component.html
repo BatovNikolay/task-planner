@@ -10,7 +10,7 @@
     ></app-statistic>
   </div>
   <div class="row bg-dark p-2 text-center">
-    <div class="col-sm text-white">l
+    <div class="col-sm text-white">
       Название задачи
     </div>
     <div class="col-sm text-white">
@@ -27,12 +27,13 @@
       <input class="d-inline ml-3" type="checkbox" aria-label="status" (change)="filterTasks($event)">
     </div>
   </div>
-  <app-list-row *ngFor="let task of tasks"
-    [name]="task.name"
-    [category]="task.category"
-    [dateStart]="task.dateStart"
-    [dateEnd]="task.dateEnd"
-    [status]="task.status"
-    (deleteTaskEmitter)="deleteTaskFromArray($event)"
+  <app-list-row *ngFor="let task of getTasksWithFilter(); let index = index"
+                [id]="index"
+                [name]="task.name"
+                [category]="task.category"
+                [dateStart]="task.dateStart"
+                [dateEnd]="task.dateEnd"
+                [status]="task.status"
+                (deleteTaskEmitter)="deleteTaskFromArray($event)"
   ></app-list-row>
 </div>

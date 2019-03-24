@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskListComponent implements OnInit {
 
+  filter: boolean;
+
   tasks = [
     {
       name: 'Task 1',
@@ -62,7 +64,11 @@ export class TaskListComponent implements OnInit {
   }
 
   filterTasks($event) {
-    console.log($event.target.checked);
+    this.filter = $event.target.checked;
+  }
+
+  getTasksWithFilter() {
+    return this.filter ? this.tasks.filter(task => task.status !== 'Finish') : this.tasks;
   }
 
   getTaskListSize() {
@@ -70,7 +76,7 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTaskFromArray(name: string) {
-    console.log('Задача ' + name + ' удалена');
+    this.tasks = this.tasks.filter(task => task.name !== name);
   }
 
   getTasksAmountByStatus(status: string) {
