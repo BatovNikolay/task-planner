@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {Task} from '../../model/task.model';
 
 @Component({
   selector: 'app-list-row',
@@ -8,22 +9,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ListRowComponent implements OnInit {
 
   @Input()
+  task: Task;
+
+  @Input()
   id: number;
-
-  @Input()
-  name: string;
-
-  @Input()
-  category: string;
-
-  @Input()
-  dateStart: string;
-
-  @Input()
-  dateEnd: string;
-
-  @Input()
-  status: string;
 
   @Output() deleteTaskEmitter = new EventEmitter<string>();
 
@@ -33,6 +22,6 @@ export class ListRowComponent implements OnInit {
   }
 
   deleteTask() {
-    this.deleteTaskEmitter.emit(this.name);
+    this.deleteTaskEmitter.emit(this.task.name);
   }
 }

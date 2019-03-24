@@ -1,10 +1,10 @@
 <div class="container-fluid mt-2">
   <div class="container-fluid p-0">
     <h2>Список задач</h2>
-    <button class="btn btn-success" (click)="addTask()">Добавить задачу</button>
+    <app-task-add></app-task-add>
     <app-statistic
       [tasksAll]="getTaskListSize()"
-      [tasksPlanned]="getTasksAmountByStatus('Planed')"
+      [tasksPlanned]="getTasksAmountByStatus('In progress')"
       [tasksFinishing]="getTasksAmountByStatus('Finish')"
       [tasksOverdue]="getTasksAmountByStatus('Overdue')"
     ></app-statistic>
@@ -28,12 +28,8 @@
     </div>
   </div>
   <app-list-row *ngFor="let task of getTasksWithFilter(); let index = index"
+                [task]="task"
                 [id]="index"
-                [name]="task.name"
-                [category]="task.category"
-                [dateStart]="task.dateStart"
-                [dateEnd]="task.dateEnd"
-                [status]="task.status"
                 (deleteTaskEmitter)="deleteTaskFromArray($event)"
   ></app-list-row>
 </div>

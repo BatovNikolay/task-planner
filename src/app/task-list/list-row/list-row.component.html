@@ -1,18 +1,18 @@
-<div class="row p-1 text-center" [ngClass]="status == 'Overdue' ? 'bg-danger' : id % 2 == 0 ? 'bg-secondary' : 'dark-green'">
+<div class="row p-1 text-center" [ngClass]="task.status == 'Overdue' ? 'bg-danger' : id % 2 == 0 ? 'bg-secondary' : 'dark-green'">
   <div class="col-sm text-white">
-    {{name}}
+    {{task.name}}
   </div>
   <div class="col-sm text-white">
-    {{category}}
+    {{task.category}}
   </div>
   <div class="col-sm text-white">
-    {{dateStart}}
+    {{task.dateStart}}
   </div>
   <div class="col-sm text-white">
-    {{dateEnd}}
+    {{task.dateEnd}}
   </div>
   <div class="col-sm text-white">
-    {{status}}
+    {{task.status}}
     <button class="btn-sm btn-danger" (click)="deleteTask()">Удалить задачу</button>
   </div>
 </div>
