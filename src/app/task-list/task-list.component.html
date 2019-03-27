@@ -2,8 +2,15 @@
   <div class="container-fluid p-0">
     <h2>Список задач</h2>
     <app-task-add
+      *ngIf="correctTask"
       (taskEmit)="addTask($event)"
     ></app-task-add>
+    <app-edit-task
+      *ngIf="!correctTask"
+      [task]="taskEdit"
+      (cancelEmitter)="setCorrectTask($event)"
+      (taskEditEmitter)="replaceTask($event)"
+    ></app-edit-task>
     <app-statistic
       [tasksAll]="getTaskListSize()"
       [tasksPlanned]="getTasksAmountByStatus('In progress')"
@@ -33,5 +40,6 @@
                 [task]="task"
                 [id]="index"
                 (deleteTaskEmitter)="deleteTaskFromArray($event)"
+                (click)="editTask(task, index)"
   ></app-list-row>
 </div>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {Task} from '../model/task.model';
 
 @Component({
@@ -9,6 +9,12 @@ import {Task} from '../model/task.model';
 export class TaskListComponent implements OnInit {
 
   filter: boolean;
+
+  correctTask = true;
+
+  private indexEdit: number;
+
+  taskEdit: Task;
 
   tasks: Task[] = [
     new Task(
@@ -78,5 +84,21 @@ export class TaskListComponent implements OnInit {
 
   addTask(task: Task) {
     this.tasks.push(task);
+  }
+
+  setCorrectTask(correctTask: boolean) {
+    this.correctTask = correctTask;
+  }
+
+  editTask(task: Task, id: number) {
+    this.correctTask = false;
+    this.indexEdit = id;
+    this.taskEdit = Object.assign({}, task);
+  }
+
+  replaceTask(task: Task) {
+    console.log(task);
+    this.tasks[this.indexEdit] = task;
+    this.correctTask = true;
   }
 }
