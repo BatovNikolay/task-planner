@@ -1,31 +1,31 @@
 <div class="container-fluid">
   <form class="form-inline">
-    <div class="form-row">
-      <div class="form-group mx-sm-3 mb-2">
+      <div class="form-group mx-sm-2 mb-2">
         <label class="col-sm-2 col-form-label" for="name">Name</label>
         <div class="col-sm-10">
-          <input class="form-control" id="name" title="name" [(ngModel)]="name">
+          <input class="form-control" id="name" name="name" title="name" [(ngModel)]="name">
         </div>
       </div>
-      <div class="form-group mx-sm-3 mb-2">
+      <div class="form-group mx-sm-2 mb-2">
         <label class="col-sm-2 col-form-label" for="category">Category</label>
         <div class="col-sm-10">
-          <input class="form-control" id="category" title="name" [(ngModel)]="name">
+          <input class="form-control" id="category" name="category" title="category" [(ngModel)]="category">
         </div>
       </div>
-      <div class="form-group mx-sm-3 mb-2">
+      <div class="form-group mx-sm-2 mb-2">
         <label class="col-sm-2 col-form-label" for="startDate">StartDate</label>
         <div class="col-sm-10">
-          <input class="form-control" id="startDate" title="name" [(ngModel)]="name">
+          <input class="form-control" id="startDate" name="startDate" title="startDate" [(ngModel)]="startDate">
         </div>
       </div>
-      <div class="form-group mx-sm-3 mb-2">
+      <div class="form-group mx-sm-2 mb-2">
         <label class="col-sm-2 col-form-label" for="endDate">EndDate</label>
         <div class="col-sm-10">
-          <input class="form-control" id="endDate" title="name" [(ngModel)]="name">
+          <input class="form-control" id="endDate" name="endDate" title="endDate" [(ngModel)]="endDate">
         </div>
       </div>
-      <button type="submit" class="btn btn-primary mb-2">Add task</button>
-    </div>
+      <div class="form-group mx-sm-2 mb-2">
+        <button type="submit" class="btn btn-primary mb-2" (click)="addTask()">Add task</button>
+      </div>
   </form>
 </div>

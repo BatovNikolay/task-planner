@@ -56,10 +56,6 @@ export class TaskListComponent implements OnInit {
   ngOnInit() {
   }
 
-  addTask() {
-    console.log('Task created!');
-  }
-
   filterTasks($event) {
     this.filter = $event.target.checked;
   }
@@ -78,5 +74,9 @@ export class TaskListComponent implements OnInit {
 
   getTasksAmountByStatus(status: string) {
     return this.tasks.filter(task => task.status === status).length;
+  }
+
+  addTask(task: Task) {
+    this.tasks.push(task);
   }
 }

@@ -1,7 +1,9 @@
 <div class="container-fluid mt-2">
   <div class="container-fluid p-0">
     <h2>Список задач</h2>
-    <app-task-add></app-task-add>
+    <app-task-add
+      (taskEmit)="addTask($event)"
+    ></app-task-add>
     <app-statistic
       [tasksAll]="getTaskListSize()"
       [tasksPlanned]="getTasksAmountByStatus('In progress')"
