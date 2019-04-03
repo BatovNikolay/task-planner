@@ -10,8 +10,9 @@ branches:
   only:
     - master
 
-before_script:
-  - npm install -g @angular/cli
+before_install:
+  - npm install -g @angular/cli @angular/compiler-cli
+install: npm install
 
 script:
   - ng build --prod --aot
@@ -21,4 +22,3 @@ deploy:
   api_key:
     secure: $API_KEY_HEROKU
   app: task-planer
-  run: "npm install @angular/cli@latest @angular/compiler-cli"
