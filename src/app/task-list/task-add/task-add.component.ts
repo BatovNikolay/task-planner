@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Task } from '../../model/task.model';
+import { TaskStatus } from '../../model/task-status.enum';
 
 @Component({
   selector: 'app-task-add',
@@ -30,7 +31,7 @@ export class TaskAddComponent implements OnInit {
       new Task(
         this.name,
         this.category,
-        'Planed',
+        TaskStatus.PLANED,
         this.startDate,
         this.endDate)
     );

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {Task} from '../model/task.model';
+import { Component, OnInit } from '@angular/core';
+import { Task } from '../model/task.model';
+import { TaskStatus } from '../model/task-status.enum';
 
 @Component({
   selector: 'app-task-list',
@@ -20,38 +21,38 @@ export class TaskListComponent implements OnInit {
     new Task(
       'Task 1',
       'Category 1',
-      'Finish',
+      TaskStatus.FINISH,
       '01.02.2002',
       '01.03.2002'
     ),
     new Task(
       'Task 2',
       'Category 3',
-      'In progress',
+      TaskStatus.IN_PROGRESS,
       '21.02.2002'
     ),
     new Task(
       'Task 3',
       'Category 2',
-      'Planed',
+      TaskStatus.PLANED,
       '21.02.2002'
     ),
     new Task(
       'Task 4',
       'Category 3',
-      'In progress',
+      TaskStatus.IN_PROGRESS,
       '21.02.2002'
     ),
     new Task(
       'Task 5',
       'Category 2',
-      'In progress',
+      TaskStatus.IN_PROGRESS,
       '21.02.2002'
     ),
     new Task(
       'Task 6',
       'Category 1',
-      'Overdue',
+      TaskStatus.OVERDUE,
       '21.02.2002'
     )
   ];
@@ -67,7 +68,7 @@ export class TaskListComponent implements OnInit {
   }
 
   getTasksWithFilter() {
-    return this.filter ? this.tasks.filter(task => task.status !== 'Finish') : this.tasks;
+    return this.filter ? this.tasks.filter(task => task.status !== TaskStatus.FINISH) : this.tasks;
   }
 
   getTaskListSize() {

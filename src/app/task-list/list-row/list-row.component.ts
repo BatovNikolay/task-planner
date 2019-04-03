@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Task} from '../../model/task.model';
+import { Task } from '../../model/task.model';
 
 @Component({
   selector: 'app-list-row',
@@ -16,7 +16,8 @@ export class ListRowComponent implements OnInit {
 
   @Output() deleteTaskEmitter = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
