@@ -21,5 +21,3 @@ deploy:
   api_key:
     secure: $API_KEY_HEROKU
   app: task-planer
-  run:
-    - npm install @angular/cli
